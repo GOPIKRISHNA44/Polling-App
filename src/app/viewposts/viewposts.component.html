@@ -1,0 +1,71 @@
+<!--<h1 *ngIf="allPostsDataKeys.length==0">Loading</h1>-->
+<mat-spinner *ngIf="!feedStatus">Loading</mat-spinner>
+<div style="background: rebeccapurple" [hidden]="!postData" >
+  <div class="globalPost" *ngFor="let key of allPostsDataKeys">
+<!--<mat-grid-list [cols]="10"  class="post">-->
+<!--<mat-grid-tile [colspan]="10" [rowspan]="1">{{postData[key]['Title']}}</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="10" [rowspan]="5" class="postContent">{{postData[key]['Content']}}</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="3" [rowspan]="2">-->
+
+    <!--<span matBadge="{{postData[key]['like']}}" matBadgeOverlap="false" (click)="likeOrDisklike(true,key)">Like</span>-->
+
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="3" [rowspan]="2">-->
+    <!--<span matRipple matBadge="{{postData[key]['dislike']}}" matBadgeOverlap="false" (click)="likeOrDisklike(false,key)">Dislike</span>-->
+  <!--</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="4" [rowspan]="2">Created By: {{postData[key]['uidNickName']}}</mat-grid-tile>-->
+  <!--&lt;!&ndash;<mat-grid-tile [colspan]="2" [rowspan]="2"><a>Read Post</a></mat-grid-tile>&ndash;&gt;-->
+<!--</mat-grid-list>-->
+
+
+      <mat-card>{{postData[key]['Title']}}</mat-card>
+      <mat-card>{{postData[key]['Content']}}</mat-card>
+      <mat-card class="myPostDiv">
+        <div>
+        <div style="width: 50%;">
+          <!--<span matBadge="{{postData[key]['like']}}" matBadgeOverlap="false" (click)="likeOrDisklike(true,key)">-->
+            <!--<i  class="fa fa-thumbs-up"></i>-->
+          <!--</span>-->
+          <button mat-raised-button color="primary"
+                  matBadge="{{postData[key]['like']}}" matBadgePosition="before" (click)="likeOrDisklike(true,key)" matBadgeColor="accent">
+            like
+          </button>
+        </div>
+      <div style="width: 50%;">
+        <!--<span matRipple matBadge="{{postData[key]['dislike']}}" matBadgeOverlap="false" (click)="likeOrDisklike(false,key)">Dislike</span>-->
+        <button mat-raised-button color="primary"
+                matBadge="{{postData[key]['dislike']}}" matBadgePosition="before" (click)="likeOrDisklike(false,key)" matBadgeColor="accent">
+          dislike
+        </button>
+
+      </div>
+        <div style="    margin-top: 11px !important;">
+          Created By: {{postData[key]['displayName']}}
+        </div>
+      </div>
+      </mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+<div *ngIf="feedStatus=='NoContent'">Check your network</div>

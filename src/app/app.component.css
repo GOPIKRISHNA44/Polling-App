@@ -1,0 +1,32 @@
+
+.orange
+{
+  background: #DDBDF1;
+
+}
+.sideNav
+{
+  position: static;
+  height: 50px;
+}
+.mainContent
+{
+  margin-left: 0px !important;
+  margin-top: 2px;
+}
+#myBtn {
+  position: fixed;
+  top: 17px;
+  right: 17px;
+  z-index: 99;
+}
+.navBar
+{
+  .mat-tab-header-pagination
+  {
+    -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+
+    -webkit-overflow-scrolling: auto;
+  }
+}
+

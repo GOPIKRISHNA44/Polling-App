@@ -1,0 +1,28 @@
+<!--<h1 *ngIf="allPostsDataKeys.length==0">Loading</h1>-->
+<h1>Your opinions </h1>
+<mat-spinner class="myPostLoader" *ngIf="!feedStatus">Loading</mat-spinner>
+<h1 *ngIf="userPosts && userPosts.length==0"><p>No posts &#x2639;</p> </h1>
+<div style="background:rebeccapurple" [hidden]="!loggedIn" id="main" >
+
+  <div class="globalPost" *ngFor="let postKey of userPosts">
+    <mat-card>{{globalPosts[postKey]['Title']}}</mat-card>
+    <mat-card>{{globalPosts[postKey]['Content']}}</mat-card>
+    <mat-card class="myPostDiv">
+      <div>
+        <!--<span matBadge="{{globalPosts[postKey]['like']}}" matBadgeOverlap="false" (click)="likeOrDisklike(true,key)">Supporting</span>-->
+      <!--<button class="curosrPointer">Supporting: {{globalPosts[postKey]['like']}}</button>-->
+        <!--<mat-chip color="accent" selected>Supporting: {{globalPosts[postKey]['like']}}</mat-chip>-->
+        <div style="width: 45%;">Supporting: {{globalPosts[postKey]['like']}}</div>
+      <!--</div>-->
+      <!--<div>-->
+        <!--<span matRipple matBadge="{{globalPosts[postKey]['dislike']}}" matBadgeOverlap="false" (click)="likeOrDisklike(false,key)">Opposing</span>-->
+        <div style="width: 45%;">Opposing : {{globalPosts[postKey]['dislike']}}</div>
+        <div (click)="delete(postKey)" class="curosrPointer" style="width: 10%;">
+          <mat-icon class="example-icon" >delete</mat-icon>
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="feedStatus=='NoContent'" class="curosrPointer">Check your network</div>

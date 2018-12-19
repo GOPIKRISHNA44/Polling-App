@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+  /*overflow: hidden;*/
+}
+.loginCss mat-form-field {
+  display: block;
+  position: relative;
+  /* text-align: left; */
+  width: 75%;
+  /* padding-left: 50%; */
+  /* overflow: hidden; */
+  margin: 0 auto;
+  margin-bottom: 5%;
+
+}
+.loginCss{
+  /*padding-top: 9%;*/
+  padding-bottom: 100%;
+}
+.loginCss button
+{
+  display: block;
+  width: 59px;
+  margin: 0 auto;
+}
+.globalPost
+{
+  border: 2px solid black;
+  margin-bottom: 2px;
+  background: whitesmoke;
+}
+.globalPost .postContent
+{
+  overflow: auto;
+  text-align: center;
+
+}
+mat-card
+{
+  border-radius: 0px !important;
+  background: wheat !important;
+}
+@media only screen and (max-width: 420px) {
+  .globalPost figure .mat-badge {
+    left: -20px;
+    top: 16px;
+  }
+}
+@media only screen and (min-width: 420px) and (max-width: 474px){
+  .globalPost{
+
+    margin:2% 2% 2% 2%;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+}
+@media only screen and (min-width: 475px){
+  .globalPost{
+
+    margin:2% 2% 2% 2%;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+}
+@media only screen and (min-width: 1024px){
+  .globalPost{
+
+    margin:2% 2% 2% 2%;
+    width: 29%;
+    display: inline-block;
+  }
+
+}
+mat-spinner
+{
+  margin: 0 auto;
+  margin-top: 72%;
+}
+.curosrPointer
+{
+  cursor: pointer; 
+}
+.myPostDiv div div{
+  margin-top: 2px;
+  display: inline-block;
+}

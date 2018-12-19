@@ -1,0 +1,14 @@
+<div class="example-container loginCss">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" id="loginUsername" autocomplete="off" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Enter your password" id="loginPassword" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+  <button mat-fab color="primary" (click)="login()">Login</button>
+
+
+</div>
+

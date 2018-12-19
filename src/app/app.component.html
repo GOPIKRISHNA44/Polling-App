@@ -1,0 +1,74 @@
+<mat-spinner *ngIf="!feedStatus">Loading</mat-spinner>
+<div id="root" [hidden]="!feedStatus">
+<div style="    background: cadetblue;">
+<mat-grid-list [cols]="8" rowHeight="50px">
+<mat-grid-tile [colspan]="8" *ngIf="!loggedIn">
+  <mat-chip color="primary" selected>Welcome header</mat-chip>
+</mat-grid-tile>
+  <mat-grid-tile [colspan]="8" *ngIf="loggedIn && userData['displayName']">
+
+    <mat-chip color="primary" selected>  Welcome {{userData["displayName"]}}</mat-chip>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="8" *ngIf="loggedIn && !userData['displayName']">
+    Welcome Anonymus
+  </mat-grid-tile>
+</mat-grid-list>
+<br />
+<mat-grid-list [cols]="8" rowHeight="50px" *ngIf="loggedIn">
+  <mat-grid-tile [colspan]="2" [rowspan]="2">
+    <!--<img src="{{userData['profileImgUrl']}}"/>-->
+      <!--<img src={{userData['profileImgUrl']}} />-->
+    <img src="{{userData['profileImgUrl']}}" style="height: 100%;"/>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="6" [rowspan]="1">{{userData["emailId"]}}</mat-grid-tile>
+  <!--<mat-grid-tile [colspan]="3" [rowspan]="1" *ngIf="userData['displayName']">Name:{{userData["displayName"]}}</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="3" [rowspan]="1" *ngIf="!userData['displayName']">Anonymus</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="3" [rowspan]="1">settings</mat-grid-tile>-->
+  <mat-grid-tile [colspan]="6" [rowspan]="1" ><button (click)="logout()" mat-raised-button color="warn">logout</button></mat-grid-tile>
+
+</mat-grid-list>
+<br/>
+<!--<mat-grid-list [cols]="8" class="orange" rowHeight="6:1" style="height: 50%">-->
+
+<!--<mat-grid-tile [colspan]="2" [rowspan]="1">Login</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="6" [rowspan]="6">Main content</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="2" [rowspan]="1">Login</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="2" [rowspan]="1">Login</mat-grid-tile>-->
+  <!--<mat-grid-tile [colspan]="2" [rowspan]="1">Login</mat-grid-tile>-->
+
+
+<!--</mat-grid-list>-->
+
+<mat-tab-group class="navBar" (selectedTabChange)="tabChanged($event)">
+  <mat-tab label="Login" *ngIf="!loggedIn"></mat-tab>
+  <mat-tab label="Signup" *ngIf="!loggedIn"> </mat-tab>
+  <mat-tab label="My Posts" *ngIf="loggedIn"> </mat-tab>
+  <mat-tab label="All feed"> </mat-tab>
+  <mat-tab label="Create Post" *ngIf="loggedIn">  </mat-tab>
+</mat-tab-group>
+
+
+</div>
+<div>
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav mode="side" class="sideNav" opened>
+
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content class="mainContent">
+  <!--<router-outlet></router-outlet>-->
+    <app-signup [hidden]="whichComponentToShow!='signup'"></app-signup>
+    <app-viewposts [hidden]="whichComponentToShow!='viewposts'"></app-viewposts>
+    <app-login [hidden]="whichComponentToShow!='login'"></app-login>
+    <app-myposts [hidden]="whichComponentToShow!='viewMyPosts'"></app-myposts>
+    <app-createpost [hidden]="whichComponentToShow!='createPost'"></app-createpost>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+  <button mat-mini-fab  (click)="topFunction()" id="myBtn">&#x2191;</button>
+</div>
+
